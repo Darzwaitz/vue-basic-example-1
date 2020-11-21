@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Example 1 - Product tab</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body> 
     <div class="nav-bar"></div>   
@@ -16,7 +16,21 @@
             </div>      
             <div class="product-info">
                 <h1>{{product}}</h1>
+                <p v-if="inventory > 0">In Stock</p>
+                <p v-else>Out of Stock</p>
+                <!-- v-show will toggle the element - its display none if false -->
+                <!-- keeps the element in the DOM -->
+                <p v-show="inventory">Total left: {{inventory}}</p>
+
+                <br>
                 <h2>{{description}}</h2>
+                <ul class="product-list">
+                    <li v-for="detail in details">{{detail}}</li>
+                </ul>
+                <!-- iterate a list using the ID and using key to bind -->
+                <div v-for="variant in variants" :key="variant.variantId">
+                    <p>{{variant.variantColour}}</p>
+                </div>
             </div>
         </div>
     </div>
