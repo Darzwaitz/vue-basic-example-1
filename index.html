@@ -10,47 +10,9 @@
     <div class="nav-bar"></div>   
 
     <div id="app">
-        <div class="product">
-            <div class="productImageBox">
-                <div class="product-image"
-                            :style="{backgroundImage: 'url(' + image + ')'}">
-                    <!-- <img v-bind:src="image" alt=""> -->
-                </div>   
-            </div><!-- productImageBox -->   
-            <div class="product-info">
-                <h1>{{product}}</h1>
-                <p v-if="inventory > 0">In Stock</p>
-                <p v-else>Out of Stock</p>
-                <!-- v-show will toggle the element - its display none if false -->
-                <!-- keeps the element in the DOM -->
-                <p v-show="inventory">Total left: {{inventory}}</p>
-
-                <br>
-                <h2>{{description}}</h2>
-                <ul class="product-list">
-                    <li v-for="detail in details">{{detail}}</li>
-                </ul>
-                <!-- iterate a list using the ID and using key to bind -->
-                <!-- 2 divs rendered for colour -->
-                <div v-for="variant in variants" 
-                    :key="variant.variantId"
-                    class="colour-box"
-                    :style="{backgroundColor: variant.variantColour}"
-                    @mouseover="updateProduct(variant.variantImage)">
-                    <!-- <p>{{variant.variantColour}}</p> removed-replaced with coloured div box-->
-                    <!-- @ is shorthand for v-on -->
-                </div>
-
-                <button v-on:click="addToCart" 
-                        v-if="inventory => 0"
-                        :disabled="!inStock"
-                        :class="{ disabledButton: !inStock }">Add to cart</button>
-                <button v-on:click="zeroCart">Zero the cart</button>
-                <div class="cart">
-                    <p>Cart({{cart}})</p>
-                </div>
-            </div>
-        </div>
+        <!-- template -->
+        <product :premium='premium'></product>
+        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="main.js"></script>
