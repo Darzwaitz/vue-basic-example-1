@@ -1,8 +1,20 @@
 /* @import 'css/reset.css'; */
-
+body{
+  margin: 0;
+}
+p{
+  display: grid;
+}
 h1{
     color: blue;
     margin-top: 0;
+}
+.product-title{
+  display: inline-block;
+}
+.cart{
+  float: right;
+  margin-right: 2rem;
 }
 .nav-bar{
     width: 100%;
@@ -56,6 +68,10 @@ h1{
   padding-left: 0;
   /* color: red; */
 } 
+
+.reviews-container{
+  margin-left: 3rem;
+}
 
 .colour-box{
   width: 40px;
